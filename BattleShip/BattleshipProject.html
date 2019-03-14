@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BattleShip</title>
+</head>
+<body>
+    <style>
+        table
+        {
+        border-spacing: 10px;
+        }
+    </style>
+ <div id="board">
+     <div>
+         <p id="textLocation">&nbsp;</p>
+     </div>
+      <table id="table">
+          <tr id="upperRow">
+              <td></td>
+              <script>
+          for (let index = 1; index <= 10; index++) {
+              var td = document.createElement("TD");
+              var text = document.createTextNode(index);
+              td.appendChild(text);
+              document.getElementById("upperRow").appendChild(td);
+          }
+          </script>
+            </tr>
+            <script src="RowCreator.js">
+            </script>
+      </table >
+     <script src="MVC.js"></script>
+    <div>
+        Enter coordinates (row, col), e.g. A5 <input value="" id="coord" type="input" size="5"> <input type="submit" id="button" onclick="guessLocation()" ></input>
+    </div>
+    <p id="endGame"></p>
+    <script>
+        document.getElementById("coord").addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("button").click();
+            document.getElementById("coord").innerText = "";
+            }
+        });
+    </script>
+</div>
+ </div>
+</body>
+</html>
